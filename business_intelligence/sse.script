@@ -1,0 +1,90 @@
+/**
+*	
+*	Version: 1.0.0
+*	
+*
+*	Description:
+*	This script permits to calculate the SSE measure of a given clustering.
+*
+*	Input:
+*	input[0]: the cluster model coming out from the cluster operator
+*	input[1]: the example set of the clustering
+*
+*	Output:
+*	The SSE value of the clustering will be displayed in log console.
+**/
+
+import com.rapidminer.operator.clustering.ClusterModel;
+import com.rapidminer.operator.clustering.Cluster;
+
+int DBSCAN = 1;
+int KMEANS = 0;
+
+/** Set the current clustering algorithm **/
+int ALGO = KMEANS;
+/************* End setting ****************/
+
+ClusterModel clustering = input[0];
+ExampleSet clusteringSet = input[1];
+
+operator.logNote("=============== SSE Computation ===============");
+Double sum = new Double(0);
+for (int i=ALGO; i < clustering.getNumberOfClusters(); i++) {
+	Cluster cluster = clustering.getCluster(i);
+
+	if (cluster.getNumberOfExamples() == 0) {
+		continue;
+	}
+	else {
+		Collection<Object> idsList = cluster.getExampleIds();
+		clusteringSet.remapIds();
+		TreeMap<String,Double> centroid = new TreeMap<String, Double>();
+		Attribute[] atts = clusteringSet.getExampleFromId(1).getAttributes().createRegularAttributeArray();
+		for (Attribute att : atts){
+			String attStr = att.getName();
+			centroid.put(attStr, 0.0);
+		}
+		
+		for (Object id : idsList) {
+			Example example = clusteringSet.getExampleFromId((Double) id);
+			for (Attribute att : atts){
+				String attStr = att.getName();
+				Double bValue = new Double(example.getValue(example.getAttributes().get(attStr)));
+				centroid.put(attStr, centroid.get(attStr) + bValue);
+			}
+		}
+
+		for (Attribute att : atts){
+			String attStr = att.getName();
+			centroid.put(attStr, centroid.get(attStr)/idsList.size());
+		}
+		operator.logNote("Centroid cluster " + i + ": " + centroid);
+
+		for (Object id : idsList) {
+			Example example = clusteringSet.getExampleFromId((Double) id);
+			distance = new Double(calculateEuclideanDistance(centroid, example));
+			sum += distance*distance;
+		}
+	}
+}
+operator.logNote("SSE: " + sum);
+operator.logNote("================== SSE End =================");
+
+Double calculateEuclideanDistance(TreeMap a, Example b)
+{
+		Attribute[] atts = b.getAttributes().createRegularAttributeArray();
+		Double sum = new Double(0);
+		Double dist = new Double(0);
+		for (Attribute att : atts){
+			String attStr = att.getName();
+			Double aValue = a.get(attStr);
+			Double bValue = new Double(b.getValue(b.getAttributes().get(attStr)));
+			Double difference = new Double(aValue - bValue);
+			sum += Math.pow(difference,2);
+		}
+		dist = Math.sqrt(sum);
+		
+		return dist;
+}
+
+
