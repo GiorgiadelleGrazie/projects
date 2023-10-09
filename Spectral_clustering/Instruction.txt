@@ -1,0 +1,11 @@
+
+The code consists of three sections divided by %% and the title of the dataset being used:
+
+-The first section concerns spectral clustering performed on the data of the Circle dataset.
+-The second section concerns spectral clustering performed on the data of the Spiral dataset.
+-The third section concerns spectral clustering performed on the data of the 3D dataset.
+To run each of these, simply use the "Run Section" feature in Matlab.
+
+In each of these sections, particularly in exercise 1, there are different values of k (10, 20, 40). The default value is set to 10. If you want to run the code with other values, you can comment out "k=10" and uncomment the desired value of k.
+
+At the end of exercise 4, there are three distinct values of M. The first value is left as default, but the other values can also be used by commenting out the first M value and uncommenting the other ones.
