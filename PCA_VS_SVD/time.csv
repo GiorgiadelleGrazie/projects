@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<title>mail@studenti Webmail :: Benvenuto in mail@studenti Webmail</title>
+<meta name="Robots" content="noindex,nofollow" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="viewport" content="" id="viewport" />
+<link rel="shortcut icon" href="skins/polito/images/favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="skins/polito/styles.min.css?s=1462784528" />
+<!--[if IE 9]><link rel="stylesheet" type="text/css" href="skins/polito/svggradients.min.css?s=1462784528" /><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="skins/polito/iehacks.min.css?s=1462784528" /><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="skins/polito/ie7hacks.min.css?s=1462784528" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="plugins/jqueryui/themes/larry/jquery-ui-1.10.4.custom.css?s=1462782152">
+<link rel="stylesheet" type="text/css" href="plugins/polito/skins/polito/polito.css?s=1491811686">
+<script type="text/javascript" src="skins/polito/rcs.min.js?s=1463401193"></script>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<script src="program/js/jquery.min.js?s=1462782152" type="text/javascript"></script>
+<script src="program/js/common.min.js?s=1462782152" type="text/javascript"></script>
+<script src="program/js/app.min.js?s=1462782152" type="text/javascript"></script>
+<script src="program/js/jstz.min.js?s=1462782152" type="text/javascript"></script>
+<script type="text/javascript">
+
+/*
+        @licstart  The following is the entire license notice for the 
+        JavaScript code in this page.
+
+        Copyright (C) 2005-2014 The Roundcube Dev Team
+
+        The JavaScript code in this page is free software: you can redistribute
+        it and/or modify it under the terms of the GNU General Public License
+        as published by the Free Software Foundation, either version 3 of
+        the License, or (at your option) any later version.
+
+        The code is distributed WITHOUT ANY WARRANTY; without even the implied
+        warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+        See the GNU GPL for more details.
+
+        @licend  The above is the entire license notice
+        for the JavaScript code in this page.
+*/
+var rcmail = new rcube_webmail();
+rcmail.set_env({"task":"login","x_frame_options":"sameorigin","standard_windows":false,"locale":"it_IT","cookie_domain":"","cookie_path":"\/","cookie_secure":true,"skin":"polito","refresh_interval":60,"session_lifetime":1800,"action":"get","comm_path":".\/?_task=login","compose_extwin":false,"date_format":"yy-mm-dd","ismobile":false,"didattica_url":"https:\/\/login.didattica.polito.it\/secure-studenti\/ShibLogin.php","help_url":"https:\/\/didattica.polito.it\/mail\/faq.html","termini_url":"http:\/\/didattica.polito.it\/mail\/termini.html","push_android":"https:\/\/didattica.polito.it\/mail\/MOBILE\/MOBILE_Android_Push_email.html","push_ios":"https:\/\/didattica.polito.it\/mail\/MOBILE\/MOBILE_Apple_Push_email.html","login_bottomline":"<div align=\"center\">\r\n       <a href=\"https:\/\/didattica.polito.it\/mail\/faq.html\">Frequently Asked Questions<\/a><br><br>\r\n       <a href=\"http:\/\/didattica.polito.it\/mail\/termini.html\">Termini e condizioni di utilizzo<\/a><br><br><br>\r\n       CONFIGURAZIONI PUSH EMAIL: <a href=\"https:\/\/didattica.polito.it\/mail\/MOBILE\/MOBILE_Apple_Push_email.html\">iOS<\/a> - <a href=\"https:\/\/didattica.polito.it\/mail\/MOBILE\/MOBILE_Android_Push_email.html\">Android<\/a>\r\n<\/div>","blankpage":"plugins\/polito\/skins\/polito\/poliwatermark.html","request_token":"nZoqYi401O3Ujd23LasDELaCHZRQlsw8"});
+rcmail.add_label({"loading":"Caricamento...","servererror":"Errore del server!","connerror":"Errore di connessione (impossibile raggiungere il server)!","requesttimedout":"Richiesta scaduta","refreshing":"Aggiornamento...","windowopenerror":"La finestra di popup \u00e8 stata bloccata!","uploadingmany":"Caricamento file...","mobile.mobile":"Mobile view","mobile.desktop":"Desktop view","mobile.pull_to_refresh":"Pull to refresh","mobile.release_to_refresh":"Release to refresh","mobile.slide to delete message":"Slide to delete the message","mobile.release to delete message":"Release to delete the message","mobile.slide to mark as read":"Slide to mark as read","mobile.release to mark as read":"Release to mark as read","mobile.slide to mark as unread":"Slide to mark as unread","mobile.release to mark as unread":"Release to mark as unread"});
+rcmail.gui_container("loginfooter","bottomline");
+rcmail.register_button('switch_skin.switch_desktop', 'rcmbtn100', 'link', '', '', '');
+rcmail.register_button('switch_skin.switch_mobile', 'rcmbtn101', 'link', '', 'about-link button-selected', '');
+rcmail.gui_object('loginform', 'form');
+rcmail.gui_object('message', 'message');
+</script>
+
+<script type="text/javascript" src="plugins/jqueryui/js/jquery-ui-1.10.4.custom.min.js?s=1462782152"></script>
+<script type="text/javascript" src="plugins/jqueryui/js/i18n/jquery.ui.datepicker-it.js?s=1462782152"></script>
+<script type="text/javascript" src="plugins/polito/polito.js?s=1466086878"></script>
+</head>
+<body>
+<div id="topline">
+<div class="topleft">
+</div>
+<div class="topright">
+</div>
+</div>
+<div id="topnav">
+        <div id="sub-topnav">
+            <div id="logo-name">Mail@Studenti</div>
+            <img src="plugins/polito/logo_poli.png" id="toplogo" border="0" alt="Logo">
+        </div>
+    </div>
+<div id="login-form">
+<div class="box-inner">
+<!--<img src="plugins/polito/logo_poli.png" id="logo" alt="mail@studenti Webmail">-->
+
+<form name="form" method="post" action="./?_task=login">
+<input type="hidden" name="_token" value="nZoqYi401O3Ujd23LasDELaCHZRQlsw8">
+<div class="boxcontent">
+<form name="form" action="./" method="post">
+<input type="hidden" name="_token" value="nZoqYi401O3Ujd23LasDELaCHZRQlsw8">
+<p style="text-align: center;">
+<img src="plugins/polito/logo_shibboleth.gif" onclick="javascript:location.href='https://login.didattica.polito.it/secure-studenti/MailLogin.php';"><br><br>
+<input type="button" value="Login" class="button mainaction" onclick="javascript:location.href='https://login.didattica.polito.it/secure-studenti/MailLogin.php';">
+</p>
+</form>
+</div>
+</form>
+
+</div>
+
+<div class="box-bottom">
+	<div id="message"></div>
+	<noscript>
+		<p class="noscriptwarning">Attenzione: questo servizio di webmail richiede Javascript! Per utilizzarlo abilita Javascript nelle impostazioni del tuo browser.</p>
+	</noscript>
+</div>
+
+<div id="bottomline">
+	mail@studenti Webmail 
+			&nbsp;&#9679;&nbsp; <a href="mailto:mail@studenti.polito.it" target="_blank" class="support-link">Ottieni supporto</a>
+		
+</div>
+</div>
+
+<script type="text/javascript">
+
+// UI startup
+var UI = new rcube_mail_ui();
+$(document).ready(function(){
+	UI.set('errortitle', 'Si è verificato un errore!');
+	UI.init();
+});
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){ 
+rcmail.init();
+var images = ["skins\/polito\/images\/ajaxloader.gif","skins\/polito\/images\/ajaxloader_dark.gif","skins\/polito\/images\/buttons.png","skins\/polito\/images\/addcontact.png","skins\/polito\/images\/filetypes.png","skins\/polito\/images\/listicons.png","skins\/polito\/images\/messages.png","skins\/polito\/images\/messages_dark.png","skins\/polito\/images\/quota.png","skins\/polito\/images\/selector.png","skins\/polito\/images\/splitter.png","skins\/polito\/images\/watermark.jpg"];
+            for (var i=0; i<images.length; i++) {
+                img = new Image();
+                img.src = images[i];
+            }
+});
+</script>
+
+</body>
+</html>
